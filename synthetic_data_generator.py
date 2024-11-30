@@ -15,6 +15,19 @@ def generate_chunk(chunk_id):
     return pd.DataFrame({'Amount': synthetic_data})
 
 def generate_synthetic_data(existing_file_path, column_name, output_dir, target_count, num_chunks = 1000000):
+	"""
+		Generate synthetic data by replicating existing data and adding random noise, and save the result in chunks as Parquet files.
+
+		Args:
+		    existing_file_path (str): Path to the CSV file containing the original data.
+		    column_name (str): Name of the column in the CSV file to use for data replication.
+		    output_dir (str): Directory to save the generated synthetic data files.
+		    target_count (int): Total number of rows to generate in the synthetic dataset.
+		    num_chunks (int, optional): Number of chunks to split the generated data into. Defaults to 1,000,000.
+
+		Returns:
+    None: Saves the synthetic data chunks directly to the specified output directory.
+	"""
 	os.makedirs(output_dir, exist_ok=True)
 
 	data = pd.read_csv(existing_file_path)[column_name].values
