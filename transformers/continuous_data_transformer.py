@@ -1,5 +1,6 @@
 import numpy as np
-
+import cupy as cp
+from models.dpgmm import DPGMM
 class ContinuousDataTransformer():
 	"""
 		Transformer class responsible for processing continuous data to train the CTABGANSynthesizer model
