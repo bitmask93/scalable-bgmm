@@ -39,7 +39,7 @@ def generate_synthetic_data(existing_file_path, column_name, output_dir, target_
 
 	# Generate and save data in chunks
 	for i in range(target_count // chunk_size):
-		print(f"Generating chunk {i + 1}...")
+		#print(f"Generating chunk {i + 1}...")
 		chunk_df = generate_chunk(i, current_count, replications_per_chunk, data)
 
 		output_path = os.path.join(output_dir, f"synthetic_data_part_{i + 1}.parquet")
